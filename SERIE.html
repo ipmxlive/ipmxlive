@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IPMXlive</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+            * {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+            }
+            body {
+                background: #0f0c29;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+                font-family: "Roboto", sans-serif;
+                display: flex;
+                height: 100vh;
+                margin: 0;
+                zoom: 50%;
+            }
+            .hero-container {
+                margin: auto;
+                display: flex;
+            }
+            .main-container {
+                width: 270px;
+                height: 640px;
+                position: relative;
+                margin: 0 20px;
+            }
+            .poster-container {
+                width: 220px;
+                position: absolute;
+                top: 0;
+                left: 20px;
+                z-index: 9999;
+            }
+            .poster {
+                width: 100%;
+                box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+            }
+            .ticket-container {
+                background: #fff;
+                width: 270px;
+                height: 520px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 5px;
+                position: absolute;
+                top: 20px;
+                box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+                opacity: 0;
+            }
+            .main-container:hover .ticket-container {
+                opacity: 1;
+                animation: bounceIn 0.6s linear;
+            }
+            .ticket__content {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                text-align: center;
+            }
+            .ticket__movie-title {
+                text-transform: uppercase;
+                margin-bottom: -11px;
+            }
+            .ticket__movie_slogan {
+                color: #999;
+                font-size: 0.7rem;
+                margin-bottom: 20px;
+                text-transform: uppercase;            }
+            .date {
+                color: #780206;
+                color: -webkit-linear-gradient(to right, #061161, #780206);
+                color: linear-gradient(to right, #061161, #780206);
+                font-size: 1.4rem;
+                font-weight: bold;
+            }
+            .time {
+                color:#111;
+                margin-bottom: 10px;
+            }
+            .trailer {
+                cursor: pointer;
+                width: 100%;
+                background: url(https://i.pinimg.com/originals/44/2c/32/442c32ae5ff009591b3fd0b91515a3b7.gif);
+                color: white;
+                padding: 15px 0;
+                font-size: 1rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                border: 0;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+            .video-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: px 0;
+            }
+            @keyframes bounceIn {
+                0%,
+                20%,
+                40%,
+                60%,
+                80%,
+                to {
+                    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                }
+                0% {
+                    opacity: 0;
+                    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+                    transform: scale3d(0.3, 0.3, 0.3);
+                }
+                20% {
+                    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+                    transform: scale3d(1.03, 1.03, 1.03);
+                }
+                40% {
+                    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+                    transform: scale3d(0.9, 0.9, 0.9);
+                }
+                60% {
+                    -webkit-transform: scale3d(1.01, 1.01, 1.01);
+                    transform: scale3d(1.01, 1.01, 1.01);
+                }
+                80% {
+                    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+                    transform: scale3d(0.97, 0.97, 0.97);
+                }
+                to {
+                    opacity: 1;
+                    -webkit-transform: scaleX(1);
+                    transform: scaleX(1);
+                }
+
+            }
+        header {
+            background: url(https://i.pinimg.com/originals/44/2c/32/442c32ae5ff009591b3fd0b91515a3b7.gif);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            position: center;
+        }
+        header h2 {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        body {
+  margin: 0;
+}
+
+#wrap {
+  font-family: sans-serif;
+  font-size: 21px;
+  line-height: 1.6;
+  margin: 0;
+  display: flex;
+
+  transition: transform .4s cubic-bezier(.25, .1, .25, 1);
+}
+
+#wrap{
+  transform: translate3d(-335px, 0, 0);
+}
+
+
+label {
+  height: 44px;
+  text-align: right;
+  display: block;
+  margin-right: -30px;
+}
+
+
+
+a,
+label {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.header {
+  background: url(https://i.pinimg.com/originals/ef/16/d3/ef16d3c805aafba1f89357b063cbf00e.gif);
+  background-size: cover;
+  width: 400px;
+  padding: 0 31px;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.nav {
+  padding: 25px;
+}
+
+.main {
+  padding: 25px;
+  flex: 1;
+  display:inline-block;
+}
+
+p {
+  max-width: 590px;
+  color:#306;
+}
+
+#menu{
+  display:none;
+}
+#menu:checked ~ #wrap{
+  transform: translate3d(0, 0, 0);
+}
+
+label>span{
+  display:none;
+}
+#menu:checked ~ #wrap label>span{
+  display:block;
+  font-size:48px;
+  line-height:48px;
+}
+
+#menu:checked ~ #wrap label>svg{
+  display:none;
+}
+h3 {
+    color: white;
+    padding: 40px 0;
+    text-shadow: 3px 3px 1px black;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+
+        </style>
+
+    </head>
+        <body>
+            <input type="checkbox" id="menu" name="menu">
+<div id="wrap">
+  <header class="header">
+    <nav class="nav">
+      <label for="menu">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="34px" height="27px" viewBox="0 0 34 27" enable-background="new 0 0 34 27" xml:space="preserve">
+<rect fill="#FFFFFF" width="34" height="4"/>
+<rect y="11" fill="#FFFFFF" width="34" height="4"/>
+<rect y="23" fill="#FFFFFF" width="34" height="4"/>
+</svg>
+        <span>X</span>
+
+      </label>
+
+      <h2>IMPXlive: Série</h2>
+      <a href="https://discord.gg/AJzsgDgJ">Discord</a>
+      <a href="v2.html">Film</a>
+    </nav>
+  </header>
+            <main>
+                <h3>IPMXLIVE : Série</h3>
+                <div class="video-section">
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="SERIE6.html"><img src="https://www.themoviedb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Strangers Things</h4>
+                                    <p class="ticket__movie-slogan">4 Saisons</p>
+                                    <p class="date">15/07/2016</p>
+                                    <p class="time">34 épisodes</p>
+                                    <a href="SERIE6.html"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                            <div class="main-container">
+                                <div class="poster-container">
+                                    <a href="SERIE2.html"><img src="https://www.themoviedb.org/t/p/original/tc8MbsgSnBxB3HSDj2Q5gnTPn9f.jpg" class="poster"></a>
+                                </div>
+                                <div class="ticket-container">
+                                    <div class="ticket__content">
+                                        <h4 class="ticket__movie-title">Formula 1 : Pilotes de leur destin</h4>
+                                        <p class="ticket__movie-slogan">4 Saisons</p>
+                                        <p class="date">08/03/2019</p>
+                                        <p class="time">40 épisodes</p>
+                                        <a href="SERIE2.html"><button class="trailer">Clique Ici</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="SERIE4.html"><img src="https://www.themoviedb.org/t/p/original/tFYMNXnUGI2EAV6BWHS7MyR8dX0.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">S.W.A.T.</h4>
+                                    <p class="ticket__movie-slogan">7 Saisons</p>
+                                    <p class="date">02/11/2017</p>
+                                    <p class="time">141 épisodes</p>
+                                    <a href="SERIE4.html"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="SERIE5.html"><img src="https://www.themoviedb.org/t/p/original/taT33NroOl2Fn8bUGj8bwdmNw3G.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Demon Slayer</h4>
+                                    <p class="ticket__movie-slogan">3 Saisons</p>
+                                    <p class="date">06/04/2019</p>
+                                    <p class="time">55 épisodes</p>
+                                    <a href="SERIE5.html"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="SERIE7.html"><img src="https://www.themoviedb.org/t/p/original/3K37IuRenaYfCeGTwyEz6NZsFqr.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Flash</h4>
+                                    <p class="ticket__movie-slogan">9 Saisons</p>
+                                    <p class="date">07/10/2014</p>
+                                    <p class="time">184 épisodes</p>
+                                    <a href="SERIE7.html"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="SERIE3.html"><img src="https://www.themoviedb.org/t/p/original/mlz0GJYxuty48NMeoJngQVy5Cv9.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Outer Banks</h4>
+                                    <p class="ticket__movie-slogan">4 Saisons</p>
+                                    <p class="date">15/04/2020</p>
+                                    <p class="time">40 épisodes</p>
+                                    <a href="SERIE3.html"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="SERIE8.html"><img src="https://www.themoviedb.org/t/p/original/5VPlsW3eFDMPlkBbmQ24DV4ccLI.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">La Fabuleuse Mme Maisel</h4>
+                                    <p class="ticket__movie-slogan">5 Saisons</p>
+                                    <p class="date">17/03/2017</p>
+                                    <p class="time">42 épisodes</p>
+                                    <a href="SERIE8.html"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/uc2gtWczT58BiAUJWFz9P5aZmNF.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Heartland</h4>
+                                    <p class="ticket__movie-slogan">13 Saisons</p>
+                                    <p class="date">14/10/2007</p>
+                                    <p class="time">225 épisodes</p>
+                                    <a href="SERIE9.html"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="SERIE10.html"><img src="https://www.themoviedb.org/t/p/original/f17yNA47s1fYAgvbXV1YsRVUpzc.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Miss Marvel</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">08/06/2022</p>
+                                    <p class="time">6 épisodes</p>
+                                    <a href="SERIE10.html"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="SERIE11.html"><img src="https://www.themoviedb.org/t/p/original/xrkDlkL6u26DLeBw2Cao8pYtrYH.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Moon Knight</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">30/03/2022</p>
+                                    <p class="time">6 épisodes</p>
+                                    <a href="SERIE11.html"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="SERIE12.html"><img src="https://www.themoviedb.org/t/p/original/5Xqf2RKJFrgaQ7bY4ObHzDakrT.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Ōban, Star-Racers</h4>
+                                    <p class="ticket__movie-slogan">1 Saisons</p>
+                                    <p class="date">05/06/2006</p>
+                                    <p class="time">26 épisodes</p>
+                                    <a href="SERIE12.html"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/ooikdDNDOHS8hCURplWeTW7FzHJ.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Rick et Morty</h4>
+                                    <p class="ticket__movie-slogan">7 Saisons</p>
+                                    <p class="date">02/12/2013</p>
+                                    <p class="time">62 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/poWy1hDzaIFv6UaYtFDNcNfiM2C.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">She-Hulk : Avocate</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">18/08/2022</p>
+                                    <p class="time">9 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/slX7j56s5gkuuXMYYOMHo47hFp1.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Star Wars Obi-Wan Kenobi</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">27/05/2022</p>
+                                    <p class="time">6 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/rmSA1xyXy7JeA0fpEiY2rZZAywh.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Toujours là pour toi</h4>
+                                    <p class="ticket__movie-slogan">2 Saisons</p>
+                                    <p class="date">03/02/2021</p>
+                                    <p class="time">26 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/8NJVn1H27qDFxOwXtaRsFjugZHf.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Les Gouttes de Dieu</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">21/04/2023</p>
+                                    <p class="time">8 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/qNOYmU6JYMeu2I0xOX9pgCBOBXi.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">We Own This City</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">25/04/2022</p>
+                                    <p class="time">6 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/hJgQjxJ1auUnY2c10arpqaYbv2f.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Westworld</h4>
+                                    <p class="ticket__movie-slogan">4 Saisons</p>
+                                    <p class="date">02/10/2016</p>
+                                    <p class="time">36 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/lKDIhc9FQibDiBQ57n3ELfZCyZg.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">See</h4>
+                                    <p class="ticket__movie-slogan">3 Saisons</p>
+                                    <p class="date">01/11/2019</p>
+                                    <p class="time">24 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/zRMUHvTgQ79zteQafNI46Nd9XFm.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Tales of The Walking Dead</h4>
+                                    <p class="ticket__movie-slogan"> Saison</p>
+                                    <p class="date">14/08/2022</p>
+                                    <p class="time">6 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/daSFbrt8QCXV2hSwB0hqYjbj681.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Grey's Anatomy</h4>
+                                    <p class="ticket__movie-slogan">20 Saisons</p>
+                                    <p class="date">27/03/2005</p>
+                                    <p class="time">445 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/r7EuubEuyVyJYKUwI8rhdcFPJcd.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">La Dernière chose qu'il m'a dite</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">14/03/2023</p>
+                                    <p class="time">7 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/byer2whf1IaMlXYrmzTbaJMCitu.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">George & Tammy</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">04/12/2022</p>
+                                    <p class="time">6 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/u6QkbGwjH0qtGO6Cz9fFi6BxRi2.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Better Off Ted</h4>
+                                    <p class="ticket__movie-slogan">2 Saisons</p>
+                                    <p class="date">18/03/2009</p>
+                                    <p class="time">26 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/1S68dU2ZZ2E7I2QeY2okKMxJCYw.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">La Casa de Papel : de Tokyo à Berlin</h4>
+                                    <p class="ticket__movie-slogan">2 Saisons</p>
+                                    <p class="date">03/09/2021</p>
+                                    <p class="time">2 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/bImZgyVf68UQtIvoVGogdL8HJqm.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">La casa de papel</h4>
+                                    <p class="ticket__movie-slogan">5 Saisons</p>
+                                    <p class="date">02/05/2017</p>
+                                    <p class="time">48 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/797NTGoCYzkYUgp9Drhw55KOLDQ.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Money Heist : Korea</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">24/06/2022</p>
+                                    <p class="time">12 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/yD38GFBAkJ0Bnt8lBoEJUKgtQHk.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Royal Crackers</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">02/04/2023</p>
+                                    <p class="time">10 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/gBkDlMaAVOVMRWWlRUHhkLAhNE3.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Mobile Suit Gundam - The Witch from Mercury</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">02/10/2022</p>
+                                    <p class="time">12 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/jDXt6xzGrE7uw8aC2rK33RzJ4Jy.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">The Bay</h4>
+                                    <p class="ticket__movie-slogan">3 Saisons</p>
+                                    <p class="date">20/03/2019</p>
+                                    <p class="time">18 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/fJ3jMPUwyKWwehAa92LaSsy8EKK.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">La Caza. Monteperdido</h4>
+                                    <p class="ticket__movie-slogan">1 Saisons</p>
+                                    <p class="date">14/03/2019</p>
+                                    <p class="time">8 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/7HW47XbkNQ5fiwQFYGWdw9gs144.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Succession</h4>
+                                    <p class="ticket__movie-slogan">4 Saisons</p>
+                                    <p class="date">03/06/2018</p>
+                                    <p class="time">38 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/kewJo0Kul1ukTIPXvL8aObNlEXo.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Somewhere Boy</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">16/10/2022</p>
+                                    <p class="time">8 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/kG3AlyUz63O8LFS2jJQdmOo7qQI.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">The Resident</h4>
+                                    <p class="ticket__movie-slogan">6 Saisons</p>
+                                    <p class="date">21/01/2018</p>
+                                    <p class="time">107 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/nU2xfSxdhOnp8oc9t1kwFmT42Cj.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Barry</h4>
+                                    <p class="ticket__movie-slogan">4 Saisons</p>
+                                    <p class="date">25/03/2018</p>
+                                    <p class="time">26 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/by7ljojEuZlVt9a8SjFwwyFcLDK.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Rabbit Hole</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">26/03/2023</p>
+                                    <p class="time">8 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="#"><img src="https://www.themoviedb.org/t/p/original/bEB9Kw4AVaQCS8CB4D5Df3dxWPg.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">Liaison fatale</h4>
+                                    <p class="ticket__movie-slogan">1 Saison</p>
+                                    <p class="date">30/04/2023</p>
+                                    <p class="time">8 épisodes</p>
+                                    <a href="//tomacloud.com/file/ATDPFGcEzI"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="main-container">
+                            <div class="poster-container">
+                                <a href="SERIE1.html"><img src="https://www.themoviedb.org/t/p/original/3LsJXaOXmG2S972apBicb2QRiOS.jpg" class="poster"></a>
+                            </div>
+                            <div class="ticket-container">
+                                <div class="ticket__content">
+                                    <h4 class="ticket__movie-title">1923</h4>
+                                    <p class="ticket__movie-slogan">1 saison</p>
+                                    <p class="date">18/12/2022</p>
+                                    <p class="time">6 épisodes</p>
+                                    <a href="SERIE1.html"><button class="trailer">Clique Ici</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </body>
+</html>
